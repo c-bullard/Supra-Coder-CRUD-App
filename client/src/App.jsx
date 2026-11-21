@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
-// import './App.css';
+import SignUp from './components/SignUp';
+import Inventory from './components/Inventory';
+import './App.css';
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <div className="page-wrapper">
         <Routes>
           <Route path="/" element={<LoginPage />}></Route>
+          <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/inventory" element={<Inventory />}></Route>
         </Routes>
       </div>
     </div>
