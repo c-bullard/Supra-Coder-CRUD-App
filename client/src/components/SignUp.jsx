@@ -45,71 +45,65 @@ export default function SignUp() {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h2 className="login-title">Create Account</h2>
+    <div className="login-card">
+      <h2 className="login-title">Create Account</h2>
 
-        {error && <div className="login-error">{error}</div>}
+      {error && <div className="login-error">{error}</div>}
 
-        <form className="login-form" onSubmit={handleSubmit}>
-          <div className="login-input-group">
-            <label className="login-label" htmlFor="first_name">
-              First Name
-            </label>
-            <input
-              className="login-input"
-              id="first_name"
-              value={form.first_name}
-              onChange={handleChange}
-              placeholder="Enter first name"
-            />
-          </div>
+      <form onSubmit={handleSubmit}>
+        <div className="login-input-group">
+          <label className="login-label" htmlFor="first_name">
+            First Name
+          </label>
+          <input
+            id="first_name"
+            value={form.first_name}
+            onChange={handleChange}
+            placeholder="Enter first name"
+          />
+        </div>
 
-          <div className="login-input-group">
-            <label className="login-label" htmlFor="last_name">
-              Last Name
-            </label>
-            <input
-              className="login-input"
-              id="last_name"
-              value={form.last_name}
-              onChange={handleChange}
-              placeholder="Enter last name"
-            />
-          </div>
+        <div className="login-input-group">
+          <label className="login-label" htmlFor="last_name">
+            Last Name
+          </label>
+          <input
+            id="last_name"
+            value={form.last_name}
+            onChange={handleChange}
+            placeholder="Enter last name"
+          />
+        </div>
 
-          <div className="login-input-group">
-            <label className="login-label" htmlFor="username">
-              Username
-            </label>
-            <input
-              className="login-input"
-              id="username"
-              value={form.username}
-              onChange={handleChange}
-              placeholder="Choose a username"
-            />
-          </div>
+        <div className="login-input-group">
+          <label className="login-label" htmlFor="username">
+            Username
+          </label>
+          <input
+            id="username"
+            value={form.username}
+            onChange={handleChange}
+            placeholder="Choose a username"
+          />
+        </div>
 
-          <div className="login-input-group">
-            <label className="login-label" htmlFor="password">
-              Password
-            </label>
-            <input
-              className="login-input"
-              id="password"
-              type="password"
-              value={form.password}
-              onChange={handleChange}
-              placeholder="*********"
-            />
-          </div>
+        <div className="login-input-group">
+          <label className="login-label" htmlFor="password">
+            Password
+          </label>
+          <input
+            id="password"
+            type="password"
+            value={form.password}
+            onChange={handleChange}
+            placeholder="*********"
+          />
+        </div>
 
-          <button className="login-button" type="submit" disabled={isLoading}>
-            {isLoading ? 'Creating account...' : 'Sign Up'}
-          </button>
-        </form>
-      </div>
+        <button className="login-button" type="submit" disabled={isLoading}>
+          {isLoading ? 'Creating account...' : 'Sign Up'}
+        </button>
+      </form>
     </div>
   );
 }

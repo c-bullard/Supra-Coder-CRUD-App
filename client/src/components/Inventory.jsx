@@ -29,32 +29,26 @@ export default function Inventory() {
 
   return (
     <div className="inventory">
-      <div className="inventory-header">
-        <h2>{user && !showAll ? `My Inventory` : 'All Items'}</h2>
-        {user && (
-          <div className="inventory-controls">
-            <div className="inventory-toggle">
-              <button
-                type="button"
-                className={!showAll ? 'active' : ''}
-                onClick={() => setShowAll(false)}
-              >
-                My Items
-              </button>
-              <button
-                type="button"
-                className={showAll ? 'active' : ''}
-                onClick={() => setShowAll(true)}
-              >
-                All Items
-              </button>
-            </div>
-            <Link className="inventory-add" to="/items/new">
-              + Add Item
-            </Link>
-          </div>
-        )}
-      </div>
+      <h2>{user && !showAll ? `My Inventory` : 'All Items'}</h2>
+      {user && (
+        <div>
+          <button
+            type="button"
+            className={!showAll ? 'active' : ''}
+            onClick={() => setShowAll(false)}
+          >
+            My Items
+          </button>
+          <button
+            type="button"
+            className={showAll ? 'active' : ''}
+            onClick={() => setShowAll(true)}
+          >
+            All Items
+          </button>
+          <Link to="/inventory/new">+ Add Item</Link>
+        </div>
+      )}
       {inventory.length === 0 ? (
         <p>No items found.</p>
       ) : (
@@ -70,7 +64,7 @@ export default function Inventory() {
             {inventory.map((item) => (
               <tr key={item.id}>
                 <td>
-                  <Link className="inventory-link" to={`/items/${item.id}`}>
+                  <Link to={`/inventory/${item.id}`}>
                     {item.item_name}
                   </Link>
                 </td>

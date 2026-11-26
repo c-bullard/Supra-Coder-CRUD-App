@@ -20,6 +20,19 @@ router.get('/', (req, res) => {
     .catch((error) => res.status(500).json({ error: error.message }));
 });
 
+router.get('/:id', (req, res) => {
+  knex('inventory')
+    .where('id', req.params.id)
+    .first()
+    .then((item) => {
+      if (!item) {
+        return res.status(404).json({ error: 'item not found' });
+      }
+      res.status(200).json(item);
+    })
+    .catch((error) => res.status(500).json({ error: error.message }));
+});
+
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
 
